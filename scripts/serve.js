@@ -178,3 +178,13 @@ function traverse(node, cb) {
 
 const server = new Server();
 server.listen();
+
+const transform = require('@diplodoc/transform');
+
+const fs = require('fs');
+
+const content = fs.readFileSync('./path/to/your/file.yfm', 'utf8');
+const vars = { user: { name: 'Alice' } };
+
+const { result } = transform(content, { vars });
+console.log(result.html); 
